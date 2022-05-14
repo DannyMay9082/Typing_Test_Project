@@ -1,0 +1,15 @@
+.passed {
+    color: green
+}
+
+.incorrect {
+    color:red
+}
+
+.error {
+    text-decoration: underline 1px red;
+}
+
+body{
+    font-size: 2em;
+}
