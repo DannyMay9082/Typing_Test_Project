@@ -25,7 +25,7 @@ function getWord() {
 }
 
 //başlanğıc üçün müəyyən miqdarda sözü html faylına at.
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 30; i++) {
     getWord();
 }
 

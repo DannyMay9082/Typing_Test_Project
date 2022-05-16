@@ -1,15 +1,31 @@
+.test {
+    position: absolute;
+    left: 40%;
+    top: 50%;
+    transform: translate(-35%, -60%);
+}
+
 .passed {
     color: green
 }
 
 .incorrect {
-    color:red
+    color: red
 }
 
 .error {
     text-decoration: underline 1px red;
 }
 
-body{
+body {
     font-size: 2em;
+}
+
+.test {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+.test>div {
+    margin: 6px
 }
