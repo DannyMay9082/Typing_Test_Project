@@ -1,1 +1,1 @@
-This is project is the clone of monkeytype.com
+This project is calculate user's typing speed per minute (WPM)
