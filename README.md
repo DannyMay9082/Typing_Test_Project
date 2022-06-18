@@ -1,1 +1,1 @@
-This project is calculate user's typing speed per minute (WPM)
+This project is for calculating user's typing speed per minute (WPM)
