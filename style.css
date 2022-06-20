@@ -6,11 +6,11 @@
 }
 
 .passed {
-    color: green
+    color: green;
 }
 
 .incorrect {
-    color: red
+    color: red;
 }
 
 .error {
@@ -27,5 +27,5 @@ body {
 }
 
 .test>div {
-    margin: 6px
+    margin: 6px;
 }
