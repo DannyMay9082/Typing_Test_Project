@@ -1,6 +1,6 @@
 import { words as list } from './words.js'
 
-for (let i = 0; i < 30; i++) {
+for (let i = 0; i < 150; i++) {
     getWord();
 }
 
@@ -53,9 +53,7 @@ function handleKey(e) {
             correctWords++;
         }
 
-
-
-        if(i+j >= 114) {
+        if(i>= 130) {
             let passed = document.querySelectorAll('.correct, .error')
             passed.forEach( object => {
                 object.remove();
@@ -78,13 +76,13 @@ function handleKey(e) {
 }
 document.addEventListener('keypress', handleKey);
 
-let seconds=59;
+let seconds=29;
 let timer;
 
 function handleTimer() {
   if(!timer) {
     timer = window.setInterval(function() {
-        if(seconds < 60) {
+        if(seconds < 30) {
             document.getElementById("timer").innerHTML = seconds;
           }
              if (seconds >0 ) {
@@ -92,7 +90,7 @@ function handleTimer() {
              } else {
                 document.removeEventListener('keypress', handleKey);
                 clearInterval(timer);
-                console.log(correctWords)
+                alert(`Your Typing speed is: ${correctWords*2}WPM`)
             };
     }, 1000);
   }

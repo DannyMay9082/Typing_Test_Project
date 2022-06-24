@@ -1,8 +1,25 @@
+@import url(//db.onlinewebfonts.com/c/a0cb693c715aaf804e67963c4d0d4d90?family=ModeSeven);
+
+body {
+    font-family: "ModeSeven"; 
+    background-color: #1E1F24;
+    color: #86E2C6;
+    
+}
+
 .test {
+    display:block;
+    overflow:hidden;
+    height: 100px; 
+    width: 960px;   
     position: absolute;
-    left: 40%;
+    left: 50%;
     top: 50%;
-    transform: translate(-35%, -60%);
+    transform: translate(-50%, -50%);   
+    font-size: 24px;
+    
+    display: inline-flex;
+    flex-wrap: wrap;
 }
 
 #timer {
@@ -14,8 +31,8 @@
 }
 
 .passed {
-    color: green;
-}
+    color: #86E2C6;
+    opacity: 0.3;}
 
 .incorrect {
     color: red;
@@ -25,15 +42,10 @@
     text-decoration: underline 1px red;
 }
 
-body {
-    font-size: 2em;
-}
 
-.test {
-    display: inline-flex;
-    flex-wrap: wrap;
-}
+
 
 .test>div {
     margin: 6px;
+    
 }
