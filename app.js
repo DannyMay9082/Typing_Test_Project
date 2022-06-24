@@ -1,6 +1,9 @@
-import {
-    words as list
-} from './words.js'
+import { words as list } from './words.js'
+
+//başlanğıc üçün müəyyən miqdarda sözü html faylına at.
+for (let i = 0; i < 30; i++) {
+    getWord();
+}
 
 function getWord() {
     let word = document.createElement('div')
@@ -21,17 +24,11 @@ function getWord() {
 
     //word div-ini html faylına əlavə elə, hərflərin element olduğu array-i return elə.
     document.querySelector('.test').appendChild(word)
-    return tempWord;
-}
-
-//başlanğıc üçün müəyyən miqdarda sözü html faylına at.
-for (let i = 0; i < 30; i++) {
-    getWord();
 }
 
 let test = document.querySelectorAll('.active'); //testdə üzərində əməliyyat aparılmamış bütün hərflər və boşluqlar
-let i = 0; //kursorun indeksi
-let j = 0; //kursorun içində olduğu sözün indeksi
+let i = 0; //kursorun mətn indeksi
+let j = 0; //kursorun söz indeksi
 let words = document.querySelectorAll('.word')
 let sum = words[0].textContent.length; //test-də istifadə olunan hər sözün uzunluğu
 
@@ -50,11 +47,9 @@ function handleKey(e) {
 
     
     if  (e.key === ' ') {
-        console.log(i)
         //əgər boşluğa basılıb və testin sonundayıqsa eventListener-i dayandır.
         if (sum === test.length) {
-            document.removeEventListener('keydown', handleKey);
-            console.log('finished')
+            document.removeEventListener('keypress', handleKey);
         }
 
         let passedLetters = words[j].querySelectorAll('.passed') //kursorun içində olduğu sözdəki doğru basılmış hərflər
@@ -71,4 +66,5 @@ function handleKey(e) {
         j++;
     }   
 }
-document.addEventListener('keydown', handleKey)
+
+document.addEventListener('keypress', handleKey)
