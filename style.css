@@ -12,6 +12,7 @@ body {
     overflow:hidden;
     height: 100px; 
     width: 960px;   
+
     position: absolute;
     left: 50%;
     top: 50%;
