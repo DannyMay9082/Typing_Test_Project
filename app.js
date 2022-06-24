@@ -47,10 +47,7 @@ function handleKey(e) {
 
     
     if  (e.key === ' ') {
-        //əgər boşluğa basılıb və testin sonundayıqsa eventListener-i dayandır.
-        if (sum === test.length) {
-            document.removeEventListener('keypress', handleKey);
-        }
+       
 
         let passedLetters = words[j].querySelectorAll('.passed') //kursorun içində olduğu sözdəki doğru basılmış hərflər
 
@@ -67,4 +64,28 @@ function handleKey(e) {
     }   
 }
 
+let seconds=9;
+let timer;
+
+function handleTimer() {
+  if(!timer) {
+    timer = window.setInterval(function() {
+        if(seconds < 10) {
+            document.getElementById("timer").innerHTML = seconds;
+          }
+             if (seconds >0 ) {
+                 seconds--;
+             } else {
+                document.removeEventListener('keypress', handleKey);
+                clearInterval(timer);
+             };
+    }, 1000);
+  }
+} 
+
 document.addEventListener('keypress', handleKey)
+document.addEventListener('keypress', handleTimer)
+
+
+
+

@@ -5,6 +5,14 @@
     transform: translate(-35%, -60%);
 }
 
+#timer {
+        position: absolute;
+        left: 45%;
+        top: 15%;
+        transform: translate(-35%, -60%);
+        font-size: 2em;
+}
+
 .passed {
     color: green;
 }
