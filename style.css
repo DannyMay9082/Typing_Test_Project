@@ -10,7 +10,7 @@ body {
 .test {
     display:block;
     overflow:hidden;
-    height: 120px; 
+    height: 110px; 
     width: 960px;   
 
     position: absolute;
