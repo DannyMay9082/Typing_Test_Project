@@ -1,4 +1,4 @@
-@import url(//db.onlinewebfonts.com/c/a0cb693c715aaf804e67963c4d0d4d90?family=ModeSeven);
+
 
 body {
     font-family: "ModeSeven"; 
@@ -26,9 +26,9 @@ body {
 #timer {
         position: absolute;
         left: 45%;
-        top: 15%;
+        top: 30%;
         transform: translate(-35%, -60%);
-        font-size: 2em;
+        font-size: 4em;
 }
 
 .passed {
