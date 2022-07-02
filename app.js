@@ -82,13 +82,10 @@ let timer;
 function handleTimer() {
   if(!timer) {
     timer = window.setInterval(function() {
-        if(seconds < 30) {
             document.getElementById("timer").innerHTML = seconds;
-          }
-             if (seconds >0 ) {
+             if (seconds > 0 ) {
                  seconds--;
              } else {
-                document.removeEventListener('keypress', handleKey);
                 clearInterval(timer);
                 alert(`Your Typing speed is: ${correctWords*2}WPM`)
             };

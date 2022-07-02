@@ -1,0 +1,19 @@
+{
+  "name": "traintyper-project",
+  "version": "1.0.0",
+  "description": "This project is for calculating user's typing speed per minute (WPM)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ahm3tJ4f/Typing_Test_Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ahm3tJ4f/Typing_Test_Project/issues"
+  },
+  "homepage": "https://github.com/Ahm3tJ4f/Typing_Test_Project#readme"
+}

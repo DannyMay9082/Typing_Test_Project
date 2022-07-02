@@ -1,14 +1,13 @@
 
 
 body {
-    font-family: "ModeSeven"; 
+    font-family: "ModeSeven", sans-serif;
     background-color: #1E1F24;
     color: #86E2C6;
     
 }
 
 .test {
-    display:block;
     overflow:hidden;
     height: 100px; 
     width: 960px;   
