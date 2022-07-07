@@ -28,8 +28,11 @@ let j = 0;
 let words = document.querySelectorAll('.word');
 let sum = words[0].textContent.length; 
 let correctWords = 0;
+testActive[i].className = 'caret';
 
 function handleKey(e) {
+
+    testActive[i+1].className = 'caret';
 
     if (e.key === testActive[i].textContent) {
 
@@ -37,7 +40,7 @@ function handleKey(e) {
         i++;
 
     }  else if (e.key !== ' '){
-        testActive[i].className = 'incorrect';
+        testActive[i].className = 'error';
 
     }
 
@@ -53,7 +56,7 @@ function handleKey(e) {
             correctWords++;
         }
 
-        if(i>= 130) {
+        if(i >= 150) {
             let passed = document.querySelectorAll('.correct, .error')
             passed.forEach( object => {
                 object.remove();
@@ -92,8 +95,6 @@ function handleTimer() {
     }, 1000);
   }
 } 
-document.addEventListener('keypress', handleTimer);
-
-
+// document.addEventListener('keypress', handleTimer);
 
 

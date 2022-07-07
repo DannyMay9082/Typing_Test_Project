@@ -1,0 +1,81 @@
+@font-face {
+    font-family: "ModeSeven";
+    src: url('./fonts/modes.woff') format('woff');
+    font-weight: normal;
+}
+
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: "ModeSeven", sans-serif;
+    background-color: #1E1F24;
+    color: #86E2C6;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    user-select: none;
+
+}
+
+.test {
+    height: 18vh;
+    width: 80vw;
+    overflow: hidden;
+
+}
+
+.word {
+    display: inline-block;
+    font-size: 2.5rem;
+    margin: .7rem;
+}
+
+
+#timer {
+
+    font-size: 3rem;
+    margin-left: .7rem;
+
+}
+
+.passed {
+    opacity: .3;
+
+}
+
+.error {
+    opacity: .6;
+    color: red;
+}
+
+.caret {    
+    border-left: 4px solid white;
+    padding: 0;
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-iteration-count: 100;
+}
+
+@keyframes blink {
+    50% {
+        border-color: rgba(255,255,255,0)
+    }
+   
+  }
