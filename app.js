@@ -95,6 +95,6 @@ function handleTimer() {
     }, 1000);
   }
 } 
-// document.addEventListener('keypress', handleTimer);
+document.addEventListener('keypress', handleTimer);
 
 
