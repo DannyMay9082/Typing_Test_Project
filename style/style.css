@@ -48,9 +48,9 @@ body {
     left: 5%;
 } 
 
-.header-primary {
+.header-primary--1,
+.header-primary--2 {
     font-size: 4rem;
-
 }
 
 .word {
@@ -61,11 +61,10 @@ body {
 
 
 #timer {
-
+    color: white;
     font-size: 3rem;
     margin-left: .7rem;
-    margin-bottom: 1rem;
-
+    margin-bottom: 1rem;    
 }
 
 .passed {

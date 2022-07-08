@@ -1,10 +1,7 @@
 import { words as list } from './words.js'
 
-for (let i = 0; i < 150; i++) {
-    getWord();
-}
-
 function getWord() {
+    for (let i = 0; i < 150; i++) {
     let word = document.createElement('div');
     word.className = 'word';
 
@@ -19,8 +16,11 @@ function getWord() {
         word.appendChild(letters);
     }
 
-    document.querySelector('.test').appendChild(word);
+     document.querySelector('.test').appendChild(word);
+    }
 }
+
+getWord();
 
 let testActive = document.querySelectorAll('.active'); 
 let i = 0; 
@@ -116,8 +116,31 @@ function handleTimer() {
     }, 1000);
   }
 } 
+
 document.addEventListener('keypress', handleTimer);
 
-document.querySelector('.button--restart').onclick = function restartTest() {
-    console.log('am')
+
+document.querySelector('.button--restart').onclick = function startTest() {
+
+   
+
+    document.querySelector('.test').replaceChildren();
+    
+    
+    getWord();
+    document.removeEventListener('keypress',handleTimer);
+
+    testActive = document.querySelectorAll('.active'); 
+    i = 0; 
+    j = 0; 
+    words = document.querySelectorAll('.word');
+    sum = words[0].textContent.length; 
+    correctWords = 0;
+    testActive[i].classList.add('caret')
+    
+    seconds=29;
+    document.querySelector('.timer').textContent = `${seconds+1}`
+
+    
+
 } 
