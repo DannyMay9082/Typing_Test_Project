@@ -4,7 +4,6 @@
     font-weight: normal;
 }
 
-
 *,
 *::before,
 *::after {
@@ -52,6 +51,7 @@ body {
 
     font-size: 3rem;
     margin-left: .7rem;
+    margin-bottom: 1rem;
 
 }
 
@@ -66,16 +66,19 @@ body {
 }
 
 .caret {    
-    border-left: 4px solid white;
+    border-left: .4rem solid white;
     padding: 0;
-    animation-name: blink;
-    animation-duration: 1s;
-    animation-iteration-count: 100;
+    margin-left: -.4rem;
+    animation: blink 1s infinite;
+    
+    
 }
 
 @keyframes blink {
+
     50% {
         border-color: rgba(255,255,255,0)
     }
-   
   }
+
+  
