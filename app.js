@@ -119,5 +119,5 @@ function handleTimer() {
 document.addEventListener('keypress', handleTimer);
 
 document.querySelector('.button--restart').onclick = function restartTest() {
-
+    console.log('am')
 } 

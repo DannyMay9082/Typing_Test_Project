@@ -18,17 +18,19 @@ html {
 }
 
 body {
+    position: relative;
     box-sizing: border-box;
     font-family: "ModeSeven", sans-serif;
     background-color: #1E1F24;
     color: #86E2C6;
 }
 
+
+
 .container {
     position: absolute;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform:translate(-50%,100%);
     user-select: none;
 
 }
@@ -37,6 +39,17 @@ body {
     height: 18vh;
     width: 80vw;
     overflow: hidden;
+
+}
+
+.header {
+    position:absolute;
+    top: -80%;
+    left: 5%;
+} 
+
+.header-primary {
+    font-size: 4rem;
 
 }
 
