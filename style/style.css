@@ -70,8 +70,32 @@ body {
     padding: 0;
     margin-left: -.4rem;
     animation: blink 1s infinite;
-    
-    
+}
+
+.button-box{
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.button--restart{
+
+    border-radius: 4px;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #86E2C6;
+    font-size: 2.5rem;
+    transition: all .3s;
+}
+
+.button--restart:hover {
+    color:rgb(215, 215, 215) ;
+}
+
+
+.button--restart:active {
+    background-color: rgb(215, 215, 215);
+    color: #1E1F24;
 }
 
 @keyframes blink {

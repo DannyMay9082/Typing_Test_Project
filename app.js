@@ -94,7 +94,7 @@ function handleKey(e) {
     }   
 }
 
-document.addEventListener('keydown', handleKey);
+document.addEventListener('keypress', handleKey);
 
 let seconds=29;
 let timer;
@@ -105,15 +105,19 @@ function handleTimer() {
             document.getElementById("timer").innerHTML = seconds;
              if (seconds > 0 ) {
                  seconds--;
+
              } else {
+
                 clearInterval(timer);
                 document.removeEventListener('keypress',handleKey);
-
                 alert(`Your Typing speed is: ${correctWords*2}WPM`)
+
             };
     }, 1000);
   }
 } 
 document.addEventListener('keypress', handleTimer);
 
+document.querySelector('.button--restart').onclick = function restartTest() {
 
+} 
