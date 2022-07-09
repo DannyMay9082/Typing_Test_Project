@@ -32,7 +32,8 @@ let sum = words[0].textContent.length;
 let correctWords = 0;
 testActive[i].classList.add('caret')
 
-
+let seconds=29;
+let timer;
 
 
 function handleKey(e) {
@@ -117,6 +118,8 @@ function handleKey(e) {
         testActive[i].classList.add('caret');
         
     }
+
+   
     
     if(!timer) {
         timer = window.setInterval(function() {
@@ -125,10 +128,11 @@ function handleKey(e) {
                      seconds--;
     
                  } else {
-    
                     clearInterval(timer);
                     document.removeEventListener('keypress',handleKey);
                     alert(`Your Typing speed is: ${correctWords*2}WPM`)
+                    seconds=29;
+                    let timer;
     
                 };
         }, 1000);
@@ -138,15 +142,11 @@ function handleKey(e) {
 
 document.addEventListener('keypress', handleKey);
 
-let seconds=29;
-let timer;
 
 
 function startTest() {
-
     document.querySelector('.test').replaceChildren();
     getWord();
-    
 
     i = 0; 
     j = 0; 
