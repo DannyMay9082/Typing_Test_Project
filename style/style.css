@@ -30,7 +30,7 @@ body {
 .container {
     position: absolute;
     left: 50%;
-    transform:translate(-50%,100%);
+    transform:translate(-50%,60%);
     user-select: none;
 
 }
@@ -44,13 +44,12 @@ body {
 
 .header {
     position:absolute;
-    top: -80%;
-    left: 5%;
+    transform: translateY(-200%);
 } 
 
 .header-primary--1,
 .header-primary--2 {
-    font-size: 4rem !important;
+    font-size: 3.5rem;
 }
 
 .word {
@@ -62,9 +61,10 @@ body {
 
 #timer {
     color: white;
-    font-size: 3rem;
+    font-size: 5rem;
     margin-left: .7rem;
-    margin-bottom: 1rem;    
+    margin-bottom: 5rem;  
+    text-align:center;  
 }
 
 .passed {
@@ -105,7 +105,11 @@ body {
 }
 
 
-.button--restart:active {
+.button--restart:active,
+.button--restart:focus
+{
+    outline: none;
+
     background-color: rgb(215, 215, 215);
     color: #1E1F24;
 }

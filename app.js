@@ -2,6 +2,7 @@ import { words as list } from './words.js'
 
 function getWord() {
     for (let i = 0; i < 150; i++) {
+    
     let word = document.createElement('div');
     word.className = 'word';
 
@@ -22,6 +23,7 @@ function getWord() {
 
 getWord();
 
+
 let testActive = document.querySelectorAll('.active'); 
 let i = 0; 
 let j = 0; 
@@ -30,7 +32,13 @@ let sum = words[0].textContent.length;
 let correctWords = 0;
 testActive[i].classList.add('caret')
 
+
+
+
 function handleKey(e) {
+    if(e.key === 'Tab'){
+        startTest();
+    }
 
     if (e.key === testActive[i].textContent) {
 
@@ -38,10 +46,27 @@ function handleKey(e) {
         testActive[i].className = 'passed';
         i++;
         
-    }  else if (e.key !== ' '){
+    }  else if (e.key !== ' ' && testActive[i].textContent != ' '){
 
         testActive[i].className = 'error';
         testActive[i+1].classList.add('caret');
+
+        if(!timer) {
+    timer = window.setInterval(function() {
+            document.getElementById("timer").innerHTML = seconds;
+             if (seconds > 0 ) {
+                 seconds--;
+
+             } else {
+
+                clearInterval(timer);
+                document.removeEventListener('keypress',handleKey);
+                alert(`Your Typing speed is: ${correctWords*2}WPM`)
+
+            };
+    }, 1000);
+  }
+
 
     }
 
@@ -65,7 +90,7 @@ function handleKey(e) {
 
         }
 
-        if(i >= 125) {
+        if(i >= 70) {
 
             let passed = document.querySelectorAll('.correct, .error')
            
@@ -91,7 +116,24 @@ function handleKey(e) {
 
         testActive[i].classList.add('caret');
         
-    }   
+    }
+    
+    if(!timer) {
+        timer = window.setInterval(function() {
+                document.getElementById("timer").innerHTML = seconds;
+                 if (seconds > 0 ) {
+                     seconds--;
+    
+                 } else {
+    
+                    clearInterval(timer);
+                    document.removeEventListener('keypress',handleKey);
+                    alert(`Your Typing speed is: ${correctWords*2}WPM`)
+    
+                };
+        }, 1000);
+      }
+
 }
 
 document.addEventListener('keypress', handleKey);
@@ -99,48 +141,29 @@ document.addEventListener('keypress', handleKey);
 let seconds=29;
 let timer;
 
-function handleTimer() {
-  if(!timer) {
-    timer = window.setInterval(function() {
-            document.getElementById("timer").innerHTML = seconds;
-             if (seconds > 0 ) {
-                 seconds--;
 
-             } else {
-
-                clearInterval(timer);
-                document.removeEventListener('keypress',handleKey);
-                alert(`Your Typing speed is: ${correctWords*2}WPM`)
-
-            };
-    }, 1000);
-  }
-} 
-
-document.addEventListener('keypress', handleTimer);
-
-
-document.querySelector('.button--restart').onclick = function startTest() {
-
-   
+function startTest() {
 
     document.querySelector('.test').replaceChildren();
-    
-    
     getWord();
-    document.removeEventListener('keypress',handleTimer);
+    
 
-    testActive = document.querySelectorAll('.active'); 
     i = 0; 
     j = 0; 
+    seconds=30;
+    correctWords = 0;
+
+    testActive = document.querySelectorAll('.active'); 
     words = document.querySelectorAll('.word');
     sum = words[0].textContent.length; 
-    correctWords = 0;
     testActive[i].classList.add('caret')
     
-    seconds=29;
-    document.querySelector('.timer').textContent = `${seconds+1}`
 
-    
+    document.addEventListener('keypress', handleKey);
+}
 
-} 
+document.querySelector('.button--restart').onclick = startTest;
+
+
+
+
