@@ -36,7 +36,7 @@ body {
 
 .test {
     overflow: hidden;
-    height: 20vh;
+    height: 12rem;
     width: 80vw;
 }
 
@@ -52,7 +52,7 @@ body {
 
 .word {
     display: inline-block;
-    font-size: 2.5rem;
+    font-size: 250%;
     margin: .7rem;
 }
 
