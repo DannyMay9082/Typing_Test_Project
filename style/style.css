@@ -30,7 +30,7 @@ body {
 .container {
     position: absolute;
     left: 50%;
-    transform:translate(-50%,60%);
+    transform:translate(-50%,90%);
     user-select: none;
 }
 
@@ -42,7 +42,7 @@ body {
 
 .header {
     position:absolute;
-    transform: translateY(-200%);
+    transform: translateY(-270%);
 } 
 
 .header-primary--1,
@@ -56,18 +56,15 @@ body {
     margin: .7rem;
 }
 
-
-#timer {
+.stats {
+    display: inline-block;
     color: white;
-    font-size: 5rem;
-    margin-left: .7rem;
-    margin-bottom: 5rem;    
-    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 1rem;    
 }
 
 .passed {
     opacity: .3;
-
 }
 
 .error {

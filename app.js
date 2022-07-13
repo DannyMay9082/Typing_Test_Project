@@ -1,8 +1,17 @@
 import { words as list } from './words.js'
 
+function addRestartButton () {
+    document.querySelector('.button-box').replaceChildren();
+    let restartButton = document.createElement('a');
+    restartButton.className = 'button--restart';
+    restartButton.append('⭯');
+    restartButton.href = '';
+    document.querySelector('.button-box').appendChild(restartButton);
+}
+
 let testActive, i, j, words, sum, correctWords, seconds, timer;
 
-function initializeIndex () {
+function initializeTestIndex () {
     i = 0; 
     j = 0; 
     words = document.querySelectorAll('.word');
@@ -11,16 +20,17 @@ function initializeIndex () {
 }
 
 function initializeVariables () {
-    initializeIndex();
+    initializeTestIndex();
     updateCaret(i);
     correctWords = 0;
-    seconds=30;
-    timer;
+    document.querySelector('#timer').textContent = '60'
+    seconds=59;
 }
 
 function updateCaret(index){
     testActive[index].classList.add('caret')
 }
+
 
 function getWord() {
     for (let i = 0; i < 150; i++) {
@@ -39,14 +49,14 @@ function getWord() {
     }
 }
 
-
-
 function handleKey(e) {
+    
+
     if (e.key === testActive[i].textContent) {
         updateCaret(i+1);
         testActive[i].className = 'passed';
         i++;
-    }else if (e.key !== ' ' && testActive[i].textContent != ' '){
+    } else if (e.key !== ' ' && testActive[i].textContent != ' '){
         testActive[i].className = 'error';
         updateCaret(i+1);
     }
@@ -55,21 +65,21 @@ function handleKey(e) {
         testActive[i].classList.remove('caret')        
         testActive[i+1].classList.remove('caret')
         let passedLetters = words[j].querySelectorAll('.passed'); 
-        
         if (passedLetters.length !== words[j].textContent.length) { 
             words[j].classList.add('error');
         } else {
             words[j].classList.add('correct');
             correctWords++;
         }
-
+        
         if(i >= 70) {
             let passed = document.querySelectorAll('.correct, .error')
             passed.forEach( object => {
                 object.remove();
             })
-           initializeIndex();
+           initializeTestIndex();
         } 
+        
         else {
             i = sum;
             sum += words[j + 1].textContent.length;
@@ -77,29 +87,28 @@ function handleKey(e) {
         }        
         updateCaret(i);;
     }
- 
+    
     if(!timer) {
         timer = window.setInterval(function() {
                 document.getElementById("timer").innerHTML = seconds;
                  if (seconds > 0 ) {
-                     seconds--;
-                 } else {
+                    seconds--;
+                    document.querySelector('#live-WPM').textContent = correctWords*2
+                } else {
                     clearInterval(timer);
-                    alert(`Your Typing speed is: ${correctWords*2}WPM`)
                     document.removeEventListener('keypress',handleKey);
                 };
         }, 1000);
-      }
+    }
 }
 
 function startTest() {
+    clearInterval(timer);
     document.querySelector('.test').replaceChildren();
+    addRestartButton();
     getWord();
-    document.addEventListener('keypress', handleKey);
     initializeVariables();
+    document.addEventListener('keypress', handleKey);
 }
 
-getWord();
-initializeVariables();
-document.addEventListener('keypress', handleKey);
-document.querySelector('.button--restart').onclick = startTest;
+startTest();
