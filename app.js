@@ -1,12 +1,14 @@
 import { words as list } from './words.js'
 
 function addRestartButton () {
-    document.querySelector('.button-box').replaceChildren();
     let restartButton = document.createElement('a');
     restartButton.className = 'button--restart';
     restartButton.append('⭯');
     restartButton.href = '';
+    let buttonBox = document.createElement('div');
+    buttonBox.className = 'button-box';
     document.querySelector('.button-box').appendChild(restartButton);
+    document.querySelector('.container').appendChild(buttonBox);
 }
 
 let testActive, i, j, words, sum, correctWords, seconds, timer;
@@ -23,8 +25,10 @@ function initializeVariables () {
     initializeTestIndex();
     updateCaret(i);
     correctWords = 0;
-    document.querySelector('#timer').textContent = '60'
-    seconds=59;
+    seconds=14;
+    document.querySelector('#timer').textContent = seconds + 1;
+
+    
 }
 
 function updateCaret(index){
@@ -91,24 +95,39 @@ function handleKey(e) {
     if(!timer) {
         timer = window.setInterval(function() {
                 document.getElementById("timer").innerHTML = seconds;
-                 if (seconds > 0 ) {
+                 if (seconds > 1 ) {
                     seconds--;
-                    document.querySelector('#live-WPM').textContent = correctWords*2
+                    document.querySelector('#live-WPM').textContent = Math.floor((correctWords * 60)/(60-seconds));
                 } else {
+                    document.getElementById("timer").innerHTML = 0;
                     clearInterval(timer);
-                    document.removeEventListener('keypress',handleKey);
+                    endTest();
                 };
         }, 1000);
     }
 }
 
-function startTest() {
-    clearInterval(timer);
-    document.querySelector('.test').replaceChildren();
+function endTest () {
+    document.querySelector('.container').replaceChildren();
+    let resultBox = document.createElement('div');
+    resultBox.className = 'result-box';
+    let secondaryResultText = document.createElement('div');
+    secondaryResultText.className = 'secondary'
+    secondaryResultText.innerHTML = 'Your Result is:';
+    resultBox.appendChild(secondaryResultText);
+    let primaryResultText = document.createElement('div');
+    primaryResultText.className = 'primary';
+    primaryResultText.textContent = correctWords + ' WPM';
+    resultBox.appendChild(primaryResultText);
+    document.querySelector('.container').appendChild(resultBox);
     addRestartButton();
+}
+
+function startTest() {
     getWord();
     initializeVariables();
     document.addEventListener('keypress', handleKey);
 }
 
 startTest();
+

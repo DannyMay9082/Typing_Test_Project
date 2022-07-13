@@ -18,20 +18,19 @@ html {
 }
 
 body {
-    position: relative;
     box-sizing: border-box;
     font-family: "ModeSeven", sans-serif;
     background-color: #1E1F24;
     color: #86E2C6;
 }
 
-
-
 .container {
     position: absolute;
+    top: 60%;
     left: 50%;
-    transform:translate(-50%,90%);
+    transform:translate(-50%,-50%);
     user-select: none;
+    transition: all .2s;
 }
 
 .test {
@@ -42,7 +41,7 @@ body {
 
 .header {
     position:absolute;
-    transform: translateY(-270%);
+    transform: translateY(-300%);
 } 
 
 .header-primary--1,
@@ -80,7 +79,7 @@ body {
 }
 
 .button-box{
-    margin-top: 4rem;
+    margin-top: 5rem;
     text-align: center;
 }
 
@@ -90,7 +89,7 @@ body {
     font-weight: 700;
     text-decoration: none;
     color: #86E2C6;
-    font-size: 2.5rem;
+    font-size: 3rem;
     transition: all .3s;
 }
 
@@ -108,11 +107,28 @@ body {
     color: #1E1F24;
 }
 
+.result-box {
+    text-align: center;
+}
+
+.secondary {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.primary {
+    font-size: 7rem;
+    font-weight: 200;
+}
+
 @keyframes blink {
 
     50% {
         border-color: rgba(255,255,255,0)
     }
   }
+
+
+
 
   
