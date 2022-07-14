@@ -25,7 +25,7 @@ function initializeVariables () {
     initializeTestIndex();
     updateCaret(i);
     correctWords = 0;
-    seconds=3;
+    seconds=14;
     scaleSeconds = 60 / (seconds + 1)  
     document.querySelector('#timer').textContent = seconds + 1;
 
@@ -134,10 +134,6 @@ function endTest () {
     setTimeout(function() {
     document.querySelector('.container').insertBefore(resultBox, document.querySelector('.container').firstElementChild);
     }, animationSpeed);
-
-
-    
-
 }
 
 function startTest() {
