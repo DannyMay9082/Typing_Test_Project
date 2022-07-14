@@ -26,7 +26,7 @@ body {
 
 .container {
     position: absolute;
-    top: 60%;
+    top: 55%;
     left: 50%;
     transform:translate(-50%,-50%);
     user-select: none;
@@ -41,7 +41,7 @@ body {
 
 .header {
     position:absolute;
-    transform: translateY(-300%);
+    transform: translateY(-270%);
 } 
 
 .header-primary--1,

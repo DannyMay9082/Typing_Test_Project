@@ -11,7 +11,7 @@ function addRestartButton () {
     document.querySelector('.container').appendChild(buttonBox);
 }
 
-let testActive, i, j, words, sum, correctWords, seconds, timer;
+let testActive, i, j, words, sum, correctWords, seconds, scaleSeconds, timer;
 
 function initializeTestIndex () {
     i = 0; 
@@ -26,6 +26,7 @@ function initializeVariables () {
     updateCaret(i);
     correctWords = 0;
     seconds=14;
+    scaleSeconds = 60 / (seconds + 1)  
     document.querySelector('#timer').textContent = seconds + 1;
 
     
@@ -97,7 +98,7 @@ function handleKey(e) {
                 document.getElementById("timer").innerHTML = seconds;
                  if (seconds > 1 ) {
                     seconds--;
-                    document.querySelector('#live-WPM').textContent = Math.floor((correctWords * 60)/(60-seconds));
+                    document.querySelector('#live-WPM').textContent = Math.floor(scaleSeconds * (correctWords * 60)/(60-seconds));
                 } else {
                     document.getElementById("timer").innerHTML = 0;
                     clearInterval(timer);
@@ -108,7 +109,8 @@ function handleKey(e) {
 }
 
 function endTest () {
-    document.querySelector('.container').replaceChildren();
+    document.querySelector('.header').remove();
+    document.querySelector('.test-box').remove();
     let resultBox = document.createElement('div');
     resultBox.className = 'result-box';
     let secondaryResultText = document.createElement('div');
@@ -117,10 +119,10 @@ function endTest () {
     resultBox.appendChild(secondaryResultText);
     let primaryResultText = document.createElement('div');
     primaryResultText.className = 'primary';
-    primaryResultText.textContent = correctWords + ' WPM';
+    primaryResultText.textContent = correctWords * scaleSeconds + ' WPM';
     resultBox.appendChild(primaryResultText);
-    document.querySelector('.container').appendChild(resultBox);
-    addRestartButton();
+    document.querySelector('.container').insertBefore(resultBox, document.querySelector('.container').firstElementChild);
+    
 }
 
 function startTest() {
