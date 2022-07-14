@@ -25,7 +25,7 @@ function initializeVariables () {
     initializeTestIndex();
     updateCaret(i);
     correctWords = 0;
-    seconds=14;
+    seconds=3;
     scaleSeconds = 60 / (seconds + 1)  
     document.querySelector('#timer').textContent = seconds + 1;
 
@@ -96,7 +96,7 @@ function handleKey(e) {
     if(!timer) {
         timer = window.setInterval(function() {
                 document.getElementById("timer").innerHTML = seconds;
-                 if (seconds > 1 ) {
+                 if (seconds > 0) {
                     seconds--;
                     document.querySelector('#live-WPM').textContent = Math.floor(scaleSeconds * (correctWords * 60)/(60-seconds));
                 } else {
@@ -108,9 +108,18 @@ function handleKey(e) {
     }
 }
 
+function removeFadeOut( el, speed ) {
+    el.style.transition = "opacity "+speed+"ms ease";
+    el.style.opacity = 0;
+    setTimeout(function() {
+        el.parentNode.removeChild(el);
+    }, speed);
+}
+
 function endTest () {
-    document.querySelector('.header').remove();
-    document.querySelector('.test-box').remove();
+    let animationSpeed = 300;
+    removeFadeOut(document.querySelector('.header'),animationSpeed);
+    removeFadeOut(document.querySelector('.test-box'),animationSpeed);
     let resultBox = document.createElement('div');
     resultBox.className = 'result-box';
     let secondaryResultText = document.createElement('div');
@@ -121,8 +130,14 @@ function endTest () {
     primaryResultText.className = 'primary';
     primaryResultText.textContent = correctWords * scaleSeconds + ' WPM';
     resultBox.appendChild(primaryResultText);
+
+    setTimeout(function() {
     document.querySelector('.container').insertBefore(resultBox, document.querySelector('.container').firstElementChild);
+    }, animationSpeed);
+
+
     
+
 }
 
 function startTest() {
