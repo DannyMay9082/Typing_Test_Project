@@ -19,7 +19,7 @@ html {
 
 body {
     box-sizing: border-box;
-    font-family: "ModeSeven", sans-serif;
+    font-family: 'ModeSeven';
     background-color: #1E1F24;
     color: #86E2C6;
 }
@@ -40,14 +40,12 @@ body {
 }
 
 .header {
-    position:absolute;
-    transform: translateY(-270%);
+    position: relative;
+    top: -16rem;
+    font-size: 2.2rem;
+    letter-spacing: .2rem;
 } 
 
-.header-primary--1,
-.header-primary--2 {
-    font-size: 3.5rem;
-}
 
 .word {
     display: inline-block;
@@ -58,8 +56,8 @@ body {
 .stats {
     display: inline-block;
     color: white;
-    font-size: 4rem;
-    margin-bottom: 1rem;    
+    font-size: 3rem;
+    margin-bottom: 3px;    
 }
 
 .passed {
@@ -72,7 +70,7 @@ body {
 }
 
 .caret {    
-    border-left: .4rem solid white;
+    border-left: .3rem solid white;
     padding: 0;
     margin-left: -.4rem;
     animation: blink 1s infinite;
