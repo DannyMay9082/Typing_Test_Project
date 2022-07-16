@@ -124,7 +124,7 @@ function endTest () {
     resultBox.className = 'result-box';
     let secondaryResultText = document.createElement('div');
     secondaryResultText.className = 'secondary'
-    secondaryResultText.innerHTML = 'Your Result is:';
+    secondaryResultText.innerHTML = 'Your result is:';
     resultBox.appendChild(secondaryResultText);
     let primaryResultText = document.createElement('div');
     primaryResultText.className = 'primary';
